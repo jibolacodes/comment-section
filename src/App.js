@@ -93,13 +93,7 @@ function App() {
                 <button type="submit">REPLY</button>
               </form>
             </div>
-          </div>
-        </div>
-{/* User reply */}
 
-        <div className="nest">
-          <div className="line"></div>
-          <div className="nest-center">
             <div className="nested-comment">
               <div className="vote">
                 <button>
@@ -117,25 +111,35 @@ function App() {
                     <p className="name">amyrobson</p>
                     <p className="time">1 day ago</p>
                   </div>
-                  <div className="update">
-                    <button className="delete">
-                      <img src={Delete} alt="reply" />
-                      <span>Delete</span>
-                    </button>
-                    <button className="edit">
-                      <img src={Edit} alt="reply" />
-                      <span>Edit</span>
-                    </button>
-                  </div>
+                  <button className="reply-open">
+                    <img src={Delete} alt="reply" />
+                    <span>Delete</span>
+                  </button>
+                  <button className="reply-open">
+                    <img src={Edit} alt="reply" />
+                    <span>Edit</span>
+                  </button>
                 </div>
-                <form action="#" className='nested-reply-input'>
-                <textarea name="reply" id="reply" cols="0" rows="10"></textarea>
-                {/* <button type="submit">REPLY</button> */}
-              </form>
+                <form action="#" className='user-input'>
+                <textarea name="reply" id="user-reply" cols="0" rows="10"></textarea>  
+                <div className="user-btn">
+                  <button className='btn' type="submit">UPDATE</button>
+                </div>
+                </form>
               </div>
             </div>
+
+
+
+
+
+
+
+
           </div>
         </div>
+{/* User reply */}
+
       </div>
     </main>
   );

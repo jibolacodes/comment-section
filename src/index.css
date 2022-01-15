@@ -140,7 +140,8 @@ button {
   font-family: var(--ff);
 }
 .reply-input button,
-.nested-reply-input button {
+.nested-reply-input button,
+.user-input button {
   background-color: var(--clr-moderate-blue);
   color: var(--clr-white);
   font-size: 0.75rem;
@@ -160,4 +161,16 @@ button {
 }
 .edit {
   margin-left: 1rem;
+}
+#user-reply {
+  width: 400px;
+  height: 85px;
+  resize: none;
+}
+
+.user-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 1.2rem
 }
