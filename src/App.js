@@ -90,17 +90,17 @@ function App() {
 
 {/* =========================================== */}
 
-            {/* <div className="nested-input-text">
+            <div className="nested-input-text">
               <form action="#" className='nested-reply-input'>
                 <img className='person-img' src={Pic} alt="" />
                 <textarea name="reply" id="reply" cols="0" rows="10"></textarea>
                 <button className='btn' type="submit">REPLY</button>
               </form>
-            </div> */}
+            </div>
 
 {/* =========================================== */}
 
-            {/* <div className="user-comment-update">
+            <div className="user-comment-update">
               <div className="vote">
                 <button>
                   <img src={Plus} alt="plus" />
@@ -136,18 +136,18 @@ function App() {
                 </div>
                 </form>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
 
 {/* Send*/}
-        {/* <div className="input-text">
+        <div className="input-text">
           <form action="#" className='reply-input'>
             <img className='person-img' src={Pic} alt="" />
             <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
             <button className='btn' type="submit">SEND</button>
           </form>
-        </div> */}
+        </div>
       </div>
     </main>
   );
