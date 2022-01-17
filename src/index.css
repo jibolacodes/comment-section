@@ -64,7 +64,7 @@ button {
   background-color: var(--clr-white);
   width: fit-content;
   height: fit-content;
-  padding: 1rem;
+  padding: 2rem;
   border-radius: var(--br);
 }
 .comment,.nested-comment, .user-comment-update {
@@ -156,7 +156,7 @@ article {
   /* padding: 0 10px; */
 }
 .nested-reply-input {
-  grid-template-columns: 30px 390px 70px;
+  grid-template-columns: 30px 390px auto;
   /* padding: 0 10px; */
 }
 textarea {
@@ -205,4 +205,7 @@ textarea:focus {
 textarea:hover,
 button:hover {
   cursor: pointer;
+}
+.btn {
+  width: 60px;
 }
