@@ -73,7 +73,7 @@ button {
   margin-bottom: 10px;
 }
 .comment {
-  grid-template-columns: 40px 550px;
+  grid-template-columns: 40px 570px;
 }
 .nested-comment, .user-comment-update {
   grid-template-columns: 40px 490px;
@@ -152,7 +152,7 @@ article {
   column-gap: 20px;
 }
 .reply-input {
-  grid-template-columns: auto 475px auto;
+  grid-template-columns: auto 480px auto;
 }
 .nested-reply-input {
   grid-template-columns: 30px 400px auto;
