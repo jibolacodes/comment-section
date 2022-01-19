@@ -1,7 +1,7 @@
 import  React from 'react';
 
 import Comments from './components/comments'
-import UserReply from './components/userReply';
+
 
 import Plus from './assets/images/icon-plus.svg'
 import Minus from './assets/images/icon-minus.svg'
@@ -15,13 +15,13 @@ function App() {
   return (
     <main>
       <div className="container">
-        <Comments />
+        <Comments currentUserId='1'/>
 {/* =========================================== */}
 
-        {/* <div className="nest">
+        <div className="nest">
           <div className="line"></div>
-          <div className="nest-center">
-            <div className="nested-comment">
+            <div className="nest-center">
+              {/* <div className="nested-comment">
               <div className="vote">
                 <button>
                   <img src={Plus} alt="plus" />
@@ -51,7 +51,6 @@ function App() {
               </div>
             </div> */}
 
-{/* =========================================== */}
 
             {/* <div className="nested-input-text">
               <form action="#" className='nested-reply-input'>
@@ -61,7 +60,7 @@ function App() {
               </form>
             </div> */}
 
-{/* =========================================== */}
+
 
             {/* <div className="user-comment-update">
               <div className="vote">
@@ -99,9 +98,9 @@ function App() {
                 </div>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
-        </div> */}
+        </div>
 
 {/* Send*/}
         {/* <div className="input-text">
