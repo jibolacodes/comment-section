@@ -1,21 +1,12 @@
 import  React from 'react';
-
 import Comments from './components/comments'
-
-
-import Plus from './assets/images/icon-plus.svg'
-import Minus from './assets/images/icon-minus.svg'
-import Reply from './assets/images/icon-reply.svg'
-import Delete from './assets/images/icon-delete.svg'
-import Edit from './assets/images/icon-edit.svg'
-
 import Pic from './assets/images/avatars/image-amyrobson.png'
 function App() {
 
   return (
     <main>
       <div className="container">
-        <Comments currentUserId='1'/>
+        <Comments />
 {/* =========================================== */}
 
         <div className="nest">

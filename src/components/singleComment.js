@@ -6,32 +6,30 @@ import { useEffect, useState } from 'react/cjs/react.development';
 
 const SingleComment = ({comment}) => {
   const [replies,setReplies] = useState(comment);
-  console.log(replies);
+  console.log();
+
   useEffect(() => {
     setReplies();
   }, [])
   return <>
     <div className="comment" key={comment.id}>
     <Vote score={comment.score}/>
-    <div>
-      <div className="up-section">
-        <div className="person">
-          <img className='person-img' src={require(`../assets${comment.user.image.png}`)} alt="" />
-          <p className="name">{comment.user.username}</p>
-          <p className="time">{comment.createdAt}</p>
+      <div>
+        <div className="up-section">
+          <div className="person">
+            <img className='person-img' src={require(`../assets${comment.user.image.png}`)} alt="" />
+            <p className="name">{comment.user.username}</p>
+            <p className="time">{comment.createdAt}</p>
+          </div>
+          <button className="reply-open">
+            <img src={Reply} alt="reply" />
+            <span>Reply</span>
+          </button>
         </div>
-        <button className="reply-open">
-          <img src={Reply} alt="reply" />
-          <span>Reply</span>
-        </button>
+        <article>{comment.content}</article>
       </div>
-      <article>{comment.content}</article>
     </div>
-  </div>
-  {/* {replies && replies.map((reply) => {
-    <SingleReply reply={reply} key={reply.id}/>
-  })} */}
-  {replies && <SingleReply />}
+    {replies || <SingleReply />}
   </>;
 };
 

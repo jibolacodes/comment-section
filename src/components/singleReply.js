@@ -1,16 +1,10 @@
 import React from 'react';
 import Vote from '../components/vote';
-
-import Plus from '../assets/images/icon-plus.svg'
-import Minus from '../assets/images/icon-minus.svg'
-import Reply from '../assets/images/icon-reply.svg'
-import Delete from '../assets/images/icon-delete.svg'
-import Edit from '../assets/images/icon-edit.svg'
-
-import Pic from '../assets/images/avatars/image-amyrobson.png'
+import Reply from '../assets/images/icon-reply.svg';
+import Pic from '../assets/images/avatars/image-amyrobson.png';
 
 
-const SingleReply = ({reply}) => {
+const SingleReply = () => {
   return (
     <div className="nest">
       <div className="line"></div>
@@ -34,7 +28,7 @@ const SingleReply = ({reply}) => {
         </div> 
       </div>
     </div>
-)
+    )
   }
 
 export default SingleReply;

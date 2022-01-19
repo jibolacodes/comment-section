@@ -1,7 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react'
 import JSONData from '../data.json'
 import SingleComment from './singleComment'
-import SingleReply from './singleReply'
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
