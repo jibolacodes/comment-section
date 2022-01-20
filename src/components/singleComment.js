@@ -4,13 +4,11 @@ import SingleReply from './singleReply';
 import Reply from '../assets/images/icon-reply.svg';
 import { useEffect, useState } from 'react/cjs/react.development';
 
-const SingleComment = ({comment}) => {
-  const [replies,setReplies] = useState(comment);
-  console.log();
+const SingleComment = ({comment, replies}) => {
+  const [showReply, setShowReply] = useState(replies)
 
-  useEffect(() => {
-    setReplies();
-  }, [])
+
+
   return <>
     <div className="comment" key={comment.id}>
     <Vote score={comment.score}/>
@@ -29,7 +27,9 @@ const SingleComment = ({comment}) => {
         <article>{comment.content}</article>
       </div>
     </div>
-    {replies || <SingleReply />}
+    {showReply && (replies.map(reply => {
+      return <SingleReply key={reply.id} reply={reply}/>
+    }))}
   </>;
 };
 

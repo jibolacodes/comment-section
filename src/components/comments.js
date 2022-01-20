@@ -3,10 +3,10 @@ import JSONData from '../data.json'
 import SingleComment from './singleComment'
 
 const Comments = () => {
-  const [comments, setComments] = useState([]);
   const data = JSON.parse(JSON.stringify(JSONData));
   const filteredComments = data.comments;
-
+  const [comments, setComments] = useState([]);
+  
   useEffect(() => {
     setComments(filteredComments);
   },[])
@@ -18,7 +18,9 @@ const Comments = () => {
        return (
           <SingleComment 
           comment={comment} 
-          key={comment.id} />
+          key={comment.id}
+          replies = {comment.replies}
+          />
         )
       })
     }
