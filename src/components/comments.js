@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import JSONData from '../data.json'
 import SingleComment from './singleComment'
 
@@ -6,7 +6,7 @@ const Comments = () => {
   const data = JSON.parse(JSON.stringify(JSONData));
   const filteredComments = data.comments;
   const [comments, setComments] = useState([]);
-  
+
   useEffect(() => {
     setComments(filteredComments);
   },[])
