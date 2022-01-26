@@ -24,12 +24,12 @@ const UserComment = () => {
             </button>
           </div>
         </div>
-{/*        <form action="#" className='user-input'>
+        <form action="#" className='user-input'>
         <textarea name="reply" id="user-reply" cols="0" rows="10"></textarea>  
         <div className="user-btn">
           <button className='btn' type="submit">UPDATE</button>
         </div>
-        </form>*/}
+        </form>
       </div>
     </div>
 	)

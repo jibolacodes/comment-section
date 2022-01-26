@@ -6,33 +6,28 @@ import Pic from '../assets/images/avatars/image-amyrobson.png';
 
 
 const SingleReply = ({reply}) => {
-  const [showNestInput, setShowNestInput] = useState(false)
-  console.log(reply);
-  const handleNestReply = () => {
-    return setShowNestInput(!showNestInput);
-  }
+  const {content, createdAt, id, replyingTo, score, user} = reply;
   return ( 
     <>
       <div className="nested-comment">
-        <Vote score={reply.score}/>
+        <Vote score={score}/>
         <div>
          <div className="up-section">
           <div className="person">
             <img className='person-img' 
-            src={require(`../assets${reply.user.image.png}`)} 
-            alt="" />
-            <p className="name">{reply.user.username}</p>
-            <p className="time">{reply.createdAt}</p>
+              src={require(`../assets${user.image.png}`)}
+              alt="" />
+            <p className="name">{user.username}</p>
+            <p className="time">{createdAt}</p>
           </div>
-          <button className="reply-open" onClick={handleNestReply}>
+          <button className="reply-open">
             <img src={Reply} alt="reply" />
             <span>Reply</span>
           </button>
          </div>
-        <article>{reply.content}</article>
+        <article>{content}</article>
         </div>
       </div> 
-      {showNestInput && <NestedReply reply={reply}/>}
     </>
     )
   }

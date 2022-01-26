@@ -1,33 +1,63 @@
-import  React, {useState, useEffect, useReducer} from 'react';
+import  React, {useState, useEffect} from 'react';
 import Data from './data.json'
 import Comments from './components/comments'
-
-
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-}
+import UserInput from './components/userInput'
+import Form from './components/form'
 
 function App() {
-  const [comments, setComments] = useState([])
-  console.log(Data)
+  const data = JSON.parse(JSON.stringify(Data));
+  const filteredComments = data.comments;
+  const currentUser = data.currentUser
 
-  const getData = async () => {
-    const resp = await fetch(Data);
-    const data = await resp.json();
+  const [comments, setComments] = useState([]);
+  const [inputs, setInputs] = useState([])
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    setComments(filteredComments);
+  },[])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(content){
+      const newContent = {content}
+      setInputs((inputs) => {
+        return [...inputs, newContent]
+      });
+      setContent('')
+    } else {
+      console.log('empty values')
+    }
   }
-getData();
+
   return (
     <main>
       <div className="container">
-        <Comments />
-         <div className="input-text">
-          <form action="#" className='reply-input' onSubmit={handleSubmit}>
-            <img className='person-img' src='' alt="" />
-            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-            <button className='btn' type="submit">SEND</button>
-          </form>
-        </div> 
+        {
+          comments.map((comment)=> {
+            return <Comments 
+              comment={comment} 
+              key={comment.id}
+              currentUser={currentUser}
+
+              />        
+          })
+        }
+        {
+          inputs.map((input)=>{
+            return (
+              <UserInput 
+                content={input.content} 
+                currentUser={currentUser}
+              />
+            )
+          })
+        }
+        <Form 
+          handleSubmit={handleSubmit}
+          content={content}
+          setContent={setContent}
+        />
       </div>
     </main>
   );
