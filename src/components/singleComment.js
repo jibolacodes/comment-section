@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Vote from '../components/vote';
 import SingleReply from './singleReply';
 import Reply from '../assets/images/icon-reply.svg';
-import { useEffect, useState } from 'react/cjs/react.development';
 
 const SingleComment = ({comment}) => {
   const [replies,setReplies] = useState(comment);
@@ -17,7 +16,10 @@ const SingleComment = ({comment}) => {
       <div>
         <div className="up-section">
           <div className="person">
-            <img className='person-img' src={require(`../assets${comment.user.image.png}`)} alt="" />
+            <img className='person-img' 
+              src={require(`../assets${comment.user.image.png}`)} 
+              alt="" 
+            />
             <p className="name">{comment.user.username}</p>
             <p className="time">{comment.createdAt}</p>
           </div>
