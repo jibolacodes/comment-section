@@ -1,33 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Vote from '../components/vote';
+import NestedReply from './nestedReply'
 import Reply from '../assets/images/icon-reply.svg';
 import Pic from '../assets/images/avatars/image-amyrobson.png';
 
 
-const SingleReply = () => {
-  return (
-    <div className="nest">
-      <div className="line"></div>
-      <div className="nest-center">
-        <div className="nested-comment">
-          <Vote />
-          <div>
-           <div className="up-section">
-            <div className="person">
-              <img className='person-img' src={Pic} alt="" />
-              <p className="name">amyrobson</p>
-              <p className="time">1 day ago</p>
-            </div>
-            <button className="reply-open">
-              <img src={Reply} alt="reply" />
-              <span>Reply</span>
-            </button>
-           </div>
-          <article></article>
+const SingleReply = ({reply}) => {
+  const {content, createdAt, id, replyingTo, score, user} = reply;
+  return ( 
+    <>
+      <div className="nested-comment">
+        <Vote score={score}/>
+        <div>
+         <div className="up-section">
+          <div className="person">
+            <img className='person-img' 
+              src={require(`../assets${user.image.png}`)}
+              alt="" />
+            <p className="name">{user.username}</p>
+            <p className="time">{createdAt}</p>
           </div>
-        </div> 
-      </div>
-    </div>
+          <button className="reply-open">
+            <img src={Reply} alt="reply" />
+            <span>Reply</span>
+          </button>
+         </div>
+        <article>{content}</article>
+        </div>
+      </div> 
+    </>
     )
   }
 

@@ -1,106 +1,63 @@
-import  React from 'react';
+import  React, {useState, useEffect} from 'react';
+import Data from './data.json'
 import Comments from './components/comments'
-import Pic from './assets/images/avatars/image-amyrobson.png'
+import UserInput from './components/userInput'
+import Form from './components/form'
+
 function App() {
+  const data = JSON.parse(JSON.stringify(Data));
+  const filteredComments = data.comments;
+  const currentUser = data.currentUser
+
+  const [comments, setComments] = useState([]);
+  const [inputs, setInputs] = useState([])
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    setComments(filteredComments);
+  },[])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(content){
+      const newContent = {content}
+      setInputs((inputs) => {
+        return [...inputs, newContent]
+      });
+      setContent('')
+    } else {
+      console.log('empty values')
+    }
+  }
 
   return (
     <main>
       <div className="container">
-        <Comments />
-{/* =========================================== */}
+        {
+          comments.map((comment)=> {
+            return <Comments 
+              comment={comment} 
+              key={comment.id}
+              currentUser={currentUser}
 
-        <div className="nest">
-          <div className="line"></div>
-            <div className="nest-center">
-              {/* <div className="nested-comment">
-              <div className="vote">
-                <button>
-                  <img src={Plus} alt="plus" />
-                </button>
-                <span>0</span>
-                <button>
-                  <img src={Minus} alt="minus" />
-                </button>
-              </div>
-              <div>
-                <div className="up-section">
-                  <div className="person">
-                    <img className='person-img' src={Pic} alt="" />
-                    <p className="name">amyrobson</p>
-                    <p className="time">1 day ago</p>
-                  </div>
-                  <button className="reply-open">
-                    <img src={Reply} alt="reply" />
-                    <span>Reply</span>
-                  </button>
-                </div>
-                <article>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  Nulla explicabo voluptatum voluptatem magnam asperiores 
-                  sequi voluptate deleniti reprehenderit vitae itaque?
-                </article>
-              </div>
-            </div> */}
-
-
-            {/* <div className="nested-input-text">
-              <form action="#" className='nested-reply-input'>
-                <img className='person-img' src={Pic} alt="" />
-                <textarea name="reply" id="reply" cols="0" rows="10"></textarea>
-                <button className='btn' type="submit">REPLY</button>
-              </form>
-            </div> */}
-
-
-
-            {/* <div className="user-comment-update">
-              <div className="vote">
-                <button>
-                  <img src={Plus} alt="plus" />
-                </button>
-                <span>0</span>
-                <button>
-                  <img src={Minus} alt="minus" />
-                </button>
-              </div>
-              <div>
-                <div className="update-section">
-                  <div className="user">
-                    <img className='person-img' src={Pic} alt="" />
-                    <p className="name">amyrobson</p>
-                    <p className="tag">you</p>
-                    <p className="time">1 day ago</p>
-                  </div>
-                  <div className="update-btns">
-                    <button className="delete">
-                      <img src={Delete} alt="reply" />
-                      <span>Delete</span>
-                    </button>
-                    <button className="edit">
-                      <img src={Edit} alt="reply" />
-                      <span>Edit</span>
-                    </button>
-                  </div>
-                </div>
-                <form action="#" className='user-input'>
-                <textarea name="reply" id="user-reply" cols="0" rows="10"></textarea>  
-                <div className="user-btn">
-                  <button className='btn' type="submit">UPDATE</button>
-                </div>
-                </form>
-              </div>
-            </div> */}
-          </div>
-        </div>
-
-{/* Send*/}
-        {/* <div className="input-text">
-          <form action="#" className='reply-input'>
-            <img className='person-img' src={Pic} alt="" />
-            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
-            <button className='btn' type="submit">SEND</button>
-          </form>
-        </div> */}
+              />        
+          })
+        }
+        {
+          inputs.map((input)=>{
+            return (
+              <UserInput 
+                content={input.content} 
+                currentUser={currentUser}
+              />
+            )
+          })
+        }
+        <Form 
+          handleSubmit={handleSubmit}
+          content={content}
+          setContent={setContent}
+        />
       </div>
     </main>
   );
