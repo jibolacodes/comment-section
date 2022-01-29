@@ -12,18 +12,18 @@ const UserComment = () => {
         <div className="up-section">
           <div className="person">
             <img className='person-img' 
-              src='{require(`../assets${comment.user.image.png}`)'}
+              src='{require(`../assets${user.image.png}`)}'
               alt="" />
             <p className="name"></p>
             <p className="time"></p>
           </div>
           <div className="update-btns">
             <button className="delete">
-              <img src='{Delete}' alt="reply" />
+              <img src={Delete} alt="reply" />
               <span>Delete</span>
             </button>
             <button className="edit">
-              <img src='{Edit}' alt="reply" />
+              <img src={Edit} alt="reply" />
               <span>Edit</span>
             </button>
           </div>

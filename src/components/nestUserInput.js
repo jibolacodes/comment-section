@@ -1,38 +1,42 @@
 import React from 'react'
-import Vote from '../components/vote';
+import Vote from './vote';
+import Delete from '../assets/images/icon-delete.svg'
+import Edit from '../assets/images/icon-edit.svg'
 
-const UserComment = () => {
+const NestUserInput = ({reply}) => {
+  const {content, createdAt, id, replyingTo, score, user} = reply;
 	return (
     <div className="user-comment-update">
-			<Vote />
+			<Vote score={score}/>
       <div>
         <div className="update-section">
           <div className="user">
-            <img className='person-img' src='{Pic}' alt="" />
-            <p className="name">amyrobson</p>
+            <img className='person-img' src={require(`../assets${user.image.png}`)} alt="" />
+            <p className="name">{user.username}</p>
             <p className="tag">you</p>
-            <p className="time">1 day ago</p>
+            <p className="time">{createdAt}</p>
           </div>
           <div className="update-btns">
             <button className="delete">
-              <img src='{Delete}' alt="reply" />
+              <img src={Delete} alt="reply" />
               <span>Delete</span>
             </button>
             <button className="edit">
-              <img src='{Edit}' alt="reply" />
+              <img src={Edit} alt="reply" />
               <span>Edit</span>
             </button>
           </div>
         </div>
-        <form action="#" className='user-input'>
+        <article>{content}</article>
+        {/* <form action="#" className='user-input'>
         <textarea name="reply" id="user-reply" cols="0" rows="10"></textarea>  
         <div className="user-btn">
           <button className='btn' type="submit">UPDATE</button>
         </div>
-        </form>
+        </form> */}
       </div>
     </div>
 	)
 }
 
-export default UserComment
+export default NestUserInput;

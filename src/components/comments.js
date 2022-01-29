@@ -1,23 +1,12 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Vote from '../components/vote';
-import NestedReply from './nestedReply'
 import SingleReply from './singleReply'
-import UserInput from './userInput'
+import CurrentUserInput from './nestUserInput'
 import Reply from '../assets/images/icon-reply.svg';
 
-
 const Comments = ({comment, currentUser}) => {
-  const [show, setShow] = useState(false);
-  const [showReplies, setShowReplies] = useState([]);
 
-  const getUserComment = () => {
-    if(currentUser.username === comment.replies.user.username) {
-      return <userInput />;
-    }
-    return <SingleReply />
-  }
-
-  const {content, createdAt, id, replies, score, user} = comment;
+  const {content, id, replies, score, user} = comment;
   return (
     <>
     <div className="comment" key={id}>
@@ -31,9 +20,7 @@ const Comments = ({comment, currentUser}) => {
             <p className="name">{user.username}</p>
             <p className="time"></p>
           </div>
-          <button 
-            className="reply-open" 
-            onClick={()=>setShow(!show)}>
+          <button className="reply-open" >
             <img src={Reply} alt="reply" />
             <span>Reply</span>
           </button>
@@ -45,11 +32,11 @@ const Comments = ({comment, currentUser}) => {
       <div className="line"></div>
       <div className="nest-center">
         {
-          showReplies && (replies.map((reply)=>{
-            return (           
+          comment && (replies.map((reply)=>{
+            return (
             reply.user.username === currentUser.username ?
-              <p>Hiii</p> :
-             <SingleReply key={reply.id} reply={reply} />        
+            <CurrentUserInput key={reply.id} reply={reply}
+            /> : <SingleReply key={reply.id} reply={reply} />        
             )
           }))
         }

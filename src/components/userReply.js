@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import UserComment from './userComment'
+import React from 'react'
 
 const UserReply = () => {
   return (

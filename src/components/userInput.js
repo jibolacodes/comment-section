@@ -5,6 +5,7 @@ import Delete from '../assets/images/icon-delete.svg'
 
 
 const UserInput= ({content, currentUser}) => {
+
   return (
     <div className="comment">
       <Vote />

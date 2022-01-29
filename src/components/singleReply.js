@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import Vote from '../components/vote';
-import NestedReply from './nestedReply'
 import Reply from '../assets/images/icon-reply.svg';
-import Pic from '../assets/images/avatars/image-amyrobson.png';
+
 
 
 const SingleReply = ({reply}) => {

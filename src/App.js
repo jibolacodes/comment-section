@@ -17,6 +17,7 @@ function App() {
     setComments(filteredComments);
   },[])
 
+  //commenting on main page
   const handleSubmit = (e) => {
     e.preventDefault();
     if(content){
@@ -33,16 +34,17 @@ function App() {
   return (
     <main>
       <div className="container">
+      {/* Comments From Other Users */}
         {
           comments.map((comment)=> {
             return <Comments 
               comment={comment} 
               key={comment.id}
               currentUser={currentUser}
-
               />        
           })
         }
+      {/* Comment From currentUser */}
         {
           inputs.map((input)=>{
             return (
@@ -53,6 +55,7 @@ function App() {
             )
           })
         }
+      {/* Input Form */}
         <Form 
           handleSubmit={handleSubmit}
           content={content}
