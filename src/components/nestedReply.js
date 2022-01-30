@@ -10,7 +10,6 @@ const NestedReply = ({reply}) => {
 
 	return (
     <>
-    
     <div className="nested-input-text">
       <form action="#" className='nested-reply-input' onSubmit={handleSubmit}>
         <img className='person-img' src='{Pic} 'alt="" />

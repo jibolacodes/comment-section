@@ -9,7 +9,7 @@ const SingleComment = ({comment, replies}) => {
     return setShowInput(!showInput);
   }
   return <>
-    <div className="comment" key={comment.id}>
+    {/* <div className="comment" key={comment.id}>
     <Vote score={comment.score}/>
       <div>
         <div className="up-section">
@@ -28,7 +28,7 @@ const SingleComment = ({comment, replies}) => {
         </div>
         <article>{comment.content}</article>
       </div>
-    </div>
+    </div> */}
 
 {/*    <div className="nest">
       <div className="line"></div>
